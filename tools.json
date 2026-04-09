@@ -1,0 +1,93 @@
+{
+  "tools": [
+    {
+      "name": "nmap_scan",
+      "description": "Perform network scanning with nmap",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "target": {
+            "type": "string",
+            "description": "Target IP address or hostname"
+          },
+          "scan_type": {
+            "type": "string",
+            "enum": ["basic", "quick", "full", "version", "os"],
+            "description": "Type of scan to perform"
+          },
+          "ports": {
+            "type": "string",
+            "description": "Specific ports to scan (optional)"
+          }
+        },
+        "required": ["target"]
+      }
+    },
+    {
+      "name": "nikto_scan",
+      "description": "Scan web server with Nikto vulnerability scanner",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "target": {
+            "type": "string",
+            "description": "Target hostname or IP"
+          },
+          "port": {
+            "type": "integer",
+            "description": "Port number"
+          },
+          "ssl": {
+            "type": "boolean",
+            "description": "Use SSL/TLS"
+          }
+        },
+        "required": ["target"]
+      }
+    },
+    {
+      "name": "whatweb_scan",
+      "description": "Identify web technologies with WhatWeb",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "target": {
+            "type": "string",
+            "description": "Target URL"
+          },
+          "aggression": {
+            "type": "integer",
+            "description": "Scan aggression level 1-4"
+          }
+        },
+        "required": ["target"]
+      }
+    },
+    {
+      "name": "run_custom_command",
+      "description": "Run a custom command in Kali Linux",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "command": {
+            "type": "string",
+            "description": "Shell command to execute"
+          },
+          "timeout": {
+            "type": "integer",
+            "description": "Command timeout in seconds"
+          }
+        },
+        "required": ["command"]
+      }
+    },
+    {
+      "name": "cleanup_kali_container",
+      "description": "Stop and remove the Kali container",
+      "inputSchema": {
+        "type": "object",
+        "properties": {}
+      }
+    }
+  ]
+}

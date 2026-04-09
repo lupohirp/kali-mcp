@@ -1,0 +1,29 @@
+version: 1
+description: "Kali Linux security testing tools MCP server"
+repository: "https://github.com/yourusername/kali-mcp-server"
+readme: |
+  # Kali Linux MCP Server
+  
+  Security testing tools for authorized penetration testing.
+  Runs as root with necessary privileges for network tools.
+
+image:
+  dockerfile: Dockerfile
+  build:
+    context: "."
+
+command:
+  transport: stdio
+
+# Run as privileged container with root user
+privileged: true
+user: "root"
+
+# Use host network for scanning
+network_mode: host
+
+# Ensure necessary capabilities
+capabilities:
+  - NET_ADMIN
+  - NET_RAW
+  - SYS_ADMIN
