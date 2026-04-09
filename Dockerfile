@@ -12,7 +12,7 @@ RUN apt-get update && \
     python3-venv \
     kali-linux-headless \
     sudo \
-    libcap2-bin \
+    libcap2-bin &&\
     apt-get purge -y "^libqt.*" "^python3-pyqt.*" "^x11-.*" "firmware-.*" && \
     # Pulisci orfani e cache apt
     apt-get autoremove -y --purge && \
