@@ -6,7 +6,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 
 # Update and install Python and essential tools
 RUN apt-get update && \
-    apt-get install -y \
+    apt-get install --no-install-recommends -y \
     python3-minimal \
     python3-pip \
     python3-venv \
