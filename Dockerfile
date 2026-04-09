@@ -7,7 +7,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 # Update and install Python and essential tools
 RUN apt-get update && \
     apt-get install -y \
-    python3 \
+    python3-minimal \
     python3-pip \
     python3-venv \
     kali-linux-headless \
